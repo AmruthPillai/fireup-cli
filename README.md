@@ -8,25 +8,31 @@ Upload anything, right from your command line.
 [![License](https://img.shields.io/npm/l/fireup-cli.svg)](https://github.com/AmruthPillai/fireup-cli/blob/master/package.json)
 
 <!-- toc -->
-* [FireUp CLI 🔥](#fireup-cli-)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
+
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g fireup-cli
+
 $ fireup COMMAND
 running command...
+
 $ fireup (-v|--version|version)
 fireup-cli/0.0.2 darwin-x64 node-v13.12.0
+
 $ fireup --help [COMMAND]
 USAGE
   $ fireup COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
