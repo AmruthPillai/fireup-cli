@@ -10,7 +10,7 @@ import FireUpConfig from '../interfaces/fireup-config';
 import UploadEvent from '../interfaces/upload-event';
 
 export default class Upload extends Command {
-  static description = 'Upload a File';
+  static description = 'upload file';
 
   static aliases = ['up'];
 
@@ -69,6 +69,7 @@ export default class Upload extends Command {
     try {
       history = await fs.readJSON(historyPath);
     } catch (error) {}
+    history = history.filter((x) => x.name !== event.name);
     history.unshift(event);
     await fs.writeJSON(historyPath, history, { spaces: 2 });
   }
@@ -77,8 +78,8 @@ export default class Upload extends Command {
     const { args, flags } = this.parse(Upload);
 
     // Check if Config Directory exists, otherwise create directory
-    const configPath = path.join(this.config.configDir, 'config.json');
     await fs.ensureDir(this.config.configDir);
+    const configPath = path.join(this.config.configDir, 'config.json');
 
     // Initialize Empty Object to bypass TSLint Errors
     let userConfig: FireUpConfig = {

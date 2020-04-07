@@ -1,10 +1,10 @@
 import * as path from 'path';
+import * as chalk from 'chalk';
 import * as fs from 'fs-extra';
 import Command, { flags } from '@oclif/command';
-import chalk = require('chalk');
 
 export default class ConfigView extends Command {
-  static description = 'View Global Configuration Variables';
+  static description = 'view global config vars';
 
   static aliases = ['cv'];
 

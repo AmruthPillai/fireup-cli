@@ -2,12 +2,18 @@ import * as path from 'path';
 import * as chalk from 'chalk';
 import * as fs from 'fs-extra';
 import { Command, flags } from '@oclif/command';
+
 import FireUpConfig from '../../interfaces/fireup-config';
 
 export default class ConfigSet extends Command {
-  static description = 'Set Global Configuration Variables';
+  static description = 'set global config vars';
 
   static aliases = ['cs'];
+
+  static examples = [
+    `$ fireup cs service.account /path/to/file.json`,
+    `$ fireup config:set storage.bucket <project-id>.appspot.com`,
+  ];
 
   static flags = {
     help: flags.help({ char: 'h' }),
