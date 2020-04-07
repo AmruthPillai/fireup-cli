@@ -1,5 +1,4 @@
-fireup-cli
-==========
+# fireup-cli
 
 Upload anything right from your command line to your own private Firebase Storage bucket.
 
@@ -9,11 +8,15 @@ Upload anything right from your command line to your own private Firebase Storag
 [![License](https://img.shields.io/npm/l/fireup-cli.svg)](https://github.com/AmruthPillai/fireup-cli/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g fireup-cli
 $ fireup COMMAND
@@ -25,8 +28,11 @@ USAGE
   $ fireup COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
 
 <!-- commandsstop -->
