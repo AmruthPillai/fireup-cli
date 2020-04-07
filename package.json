@@ -1,6 +1,6 @@
 {
   "name": "fireup-cli",
-  "description": "Upload anything right from your command line to your own private Firebase Storage bucket.",
+  "description": "Upload anything, right from your command line.",
   "version": "0.0.1",
   "author": "Amruth Pillai @AmruthPillai",
   "bin": {
@@ -11,9 +11,11 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.14.0",
     "@oclif/plugin-help": "^2.2.3",
+    "@types/node-notifier": "^6.0.1",
     "chalk": "^4.0.0",
     "clipboardy": "^2.3.0",
     "firebase-admin": "^8.10.0",
+    "ora": "^4.0.3",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
