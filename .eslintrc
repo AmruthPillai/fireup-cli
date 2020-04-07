@@ -4,7 +4,7 @@
     "oclif",
     "oclif-typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
   ]
 }

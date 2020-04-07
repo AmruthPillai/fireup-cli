@@ -11,7 +11,6 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.14.0",
     "@oclif/plugin-help": "^2.2.3",
-    "@types/node-notifier": "^6.0.1",
     "chalk": "^4.0.0",
     "clipboardy": "^2.3.0",
     "firebase-admin": "^8.10.0",
@@ -20,6 +19,7 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
+    "@types/jsonfile": "^5.0.0",
     "@types/node": "^10.17.18",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
@@ -33,11 +33,13 @@
     "typescript": "^3.8.3"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.1.0"
   },
   "files": [
     "/bin",
-    "/lib"
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
   ],
   "homepage": "https://github.com/AmruthPillai/fireup-cli",
   "keywords": [
@@ -46,7 +48,11 @@
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "bin": "fireup"
+    "commands": "./lib/commands",
+    "bin": "fireup",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
   },
   "repository": "AmruthPillai/fireup-cli",
   "scripts": {
