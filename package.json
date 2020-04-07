@@ -11,6 +11,9 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.14.0",
     "@oclif/plugin-help": "^2.2.3",
+    "chalk": "^4.0.0",
+    "clipboardy": "^2.3.0",
+    "firebase-admin": "^8.10.0",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
