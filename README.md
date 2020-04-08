@@ -1,4 +1,4 @@
-![Banner](./banner.png)
+![FireUp CLI Banner](https://i.imgur.com/7KQK8hj.png)
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/fireup-cli.svg)](https://npmjs.org/package/fireup-cli)
