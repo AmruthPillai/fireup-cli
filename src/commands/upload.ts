@@ -54,7 +54,9 @@ export default class Upload extends Command {
     help: flags.help({ char: 'h' }),
   };
 
-  static args = [{ name: 'file' }];
+  static args = [
+    { name: 'file', description: 'path of the file you want to upload' },
+  ];
 
   async copyToClipboard(link: string): Promise<void> {
     await clipboardy.write(link);
