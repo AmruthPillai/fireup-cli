@@ -1,3 +1,5 @@
+![Banner](./banner.png)
+
 # 🔥 `fireup-cli`
 
 Upload anything, right from your command line.
