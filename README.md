@@ -7,9 +7,18 @@ Upload anything, right from your command line.
 [![Downloads/week](https://img.shields.io/npm/dw/fireup-cli.svg)](https://npmjs.org/package/fireup-cli)
 [![License](https://img.shields.io/npm/l/fireup-cli.svg)](https://github.com/AmruthPillai/fireup-cli/blob/master/package.json)
 
+- [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Commands](#commands)
+
+# Introduction
+
+I've always found myself on the terminal 90% of the time when I'm on my computer. The first thing I do when I wake up is fire up the command line, git pull all my projects and then I drink my coffee.
+
+Given this lifestyle, I've also found it a pain to find a place to upload a certain file when I need to share them with friends privately, or upload an image publicly that I want to post on a forum/message board. Thus, `fireup-cli` was born. It taps into your Firebase Project's Storage Bucket to upload/download files to it, share links and delete them, all from your command line.
+
+The motivation to go with Firebase Storage was simply that it was free and seemed like the most convinient. **On the free Spark plan, you get 5 GB of storage with 1 GB of download bandwidth per day**. If this is not enough for you, you can [learn more about the Blaze plan here](https://firebase.google.com/pricing#storage).
 
 # Installation
 
