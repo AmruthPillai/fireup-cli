@@ -1,7 +1,7 @@
 {
   "name": "fireup-cli",
   "description": "Upload anything, right from your command line.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Amruth Pillai @AmruthPillai",
   "bin": {
     "fireup": "./bin/run"
