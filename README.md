@@ -51,8 +51,6 @@ $ fireup up /path/to/file -pc
 
 # Commands
 
-<!-- commands -->
-
 - [`fireup upload [FILE]`](#fireup-upload-file)
 - [`fireup history`](#fireup-history)
 - [`fireup config:set KEY VALUE`](#fireup-configset-key-value)
@@ -182,5 +180,3 @@ USAGE
 ```
 
 _See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src/commands/update.ts)_
-
-<!-- commandsstop -->
