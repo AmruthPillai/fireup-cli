@@ -8,9 +8,12 @@
   },
   "bugs": "https://github.com/AmruthPillai/fireup-cli/issues",
   "dependencies": {
+    "@oclif/color": "^0.1.0",
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.14.0",
     "@oclif/plugin-help": "^2.2.3",
+    "@oclif/plugin-not-found": "^1.2.3",
+    "@oclif/plugin-update": "^1.3.9",
     "chalk": "^4.0.0",
     "clipboardy": "^2.3.0",
     "firebase-admin": "^8.10.0",
@@ -43,7 +46,11 @@
   ],
   "homepage": "https://github.com/AmruthPillai/fireup-cli",
   "keywords": [
-    "oclif"
+    "oclif",
+    "firebase",
+    "storage",
+    "upload",
+    "cli"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -51,14 +58,15 @@
     "commands": "./lib/commands",
     "bin": "fireup",
     "plugins": [
-      "@oclif/plugin-help"
+      "@oclif/plugin-help",
+      "@oclif/plugin-update",
+      "@oclif/plugin-not-found"
     ]
   },
   "repository": "AmruthPillai/fireup-cli",
   "scripts": {
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
-    "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
