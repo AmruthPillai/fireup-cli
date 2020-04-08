@@ -22,7 +22,7 @@ export default class ConfigView extends Command {
     // Attempt to read Configuration Variables, otherwise show error
     try {
       const userConfig = await fs.readJSON(configPath);
-      this.log(JSON.stringify(userConfig, null, 4));
+      console.dir(userConfig);
     } catch (error) {
       this.log(chalk.bold.red('No configuration file found.'));
       this.log('Please refer to setup guide in the documentation.');

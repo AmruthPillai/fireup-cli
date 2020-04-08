@@ -1,4 +1,4 @@
-# FireUp CLI 🔥
+# 🔥 `fireup-cli`
 
 Upload anything, right from your command line.
 
@@ -7,38 +7,38 @@ Upload anything, right from your command line.
 [![Downloads/week](https://img.shields.io/npm/dw/fireup-cli.svg)](https://npmjs.org/package/fireup-cli)
 [![License](https://img.shields.io/npm/l/fireup-cli.svg)](https://github.com/AmruthPillai/fireup-cli/blob/master/package.json)
 
-<!-- toc -->
-
-- [FireUp CLI 🔥](#fireup-cli-)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Commands](#commands)
 
-<!-- tocstop -->
-
 # Installation
 
-<!-- install -->
+To install and set up `fireup-cli` for quick and easy uploads, all you need is:
+
+1. Node.js installed on your machine, and node/npm in your PATH
+2. Firebase Project you can upload to, you can create one for free here
+3. Service Account JSON & Storage Bucket URL from above Firebase Project
+
+Then, just run these commands:
 
 ```sh-session
-$ npm install -g fireup-cli
+$ npm install --global fireup-cli
 
 $ fireup config:set service.account /path/to/service-account.json
 $ fireup config:set storage.bucket <project-id>.appspot.com
 ```
 
-<!-- installstop -->
-
 # Usage
-
-<!-- usage -->
 
 ```sh-session
 $ fireup upload --file /path/to/file --public --clipboard
-OR
-$ fireup up /path/to/file -pc
 ```
 
-<!-- usagestop -->
+**OR**
+
+```sh-session
+$ fireup up /path/to/file -pc
+```
 
 # Commands
 

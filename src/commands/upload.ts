@@ -2,15 +2,14 @@ import * as ora from 'ora';
 import * as path from 'path';
 import * as chalk from 'chalk';
 import * as fs from 'fs-extra';
-import * as admin from 'firebase-admin';
 import * as clipboardy from 'clipboardy';
 import { Command, flags } from '@oclif/command';
 
-import FireUpConfig from '../interfaces/fireup-config';
 import UploadEvent from '../interfaces/upload-event';
+import { getStorageBucket } from '../utils';
 
 export default class Upload extends Command {
-  static description = 'upload file';
+  static description = 'upload file to storage bucket';
 
   static aliases = ['up'];
 
@@ -77,59 +76,8 @@ export default class Upload extends Command {
   async run(): Promise<void> {
     const { args, flags } = this.parse(Upload);
 
-    // Check if Config Directory exists, otherwise create directory
-    await fs.ensureDir(this.config.configDir);
-    const configPath = path.join(this.config.configDir, 'config.json');
-
-    // Initialize Empty Object to bypass TSLint Errors
-    let userConfig: FireUpConfig = {
-      serviceAccount: '',
-      storageBucket: '',
-    };
-
-    // Attempt to read Configuration Variables, otherwise show error
-    try {
-      userConfig = await fs.readJSON(configPath);
-    } catch (error) {
-      this.log(chalk.bold.red('No configuration file found.'));
-      this.log('Please refer to setup guide in the documentation.');
-      this.log(
-        'You can also run',
-        chalk.bold.underline('fireup config:set -h'),
-        'to know more.',
-      );
-    }
-
-    // Search for Google Service Account JSON path
-    const serviceAccount = userConfig.serviceAccount || '';
-    if (serviceAccount === '') {
-      this.log(chalk.bold.red('Cannot find your Google Service Account JSON.'));
-      this.log(
-        'Please set the path config variable by running',
-        chalk.bold.underline(
-          'fireup config:set service.account /path/to/file.json',
-        ),
-      );
-      return;
-    }
-
-    // Search for Firebase Storage Bucket URL
-    // Priority: flag > global config
-    const storageBucket = flags.bucket || userConfig.storageBucket || '';
-    if (storageBucket === '') {
-      this.log(chalk.bold.red('Cannot find your Firebase Storage Bucket URL.'));
-      this.log(
-        'Please check the documentation on how to initialize config, or provide a bucket URL through the -b flag.',
-      );
-      return;
-    }
-
-    // Initialize Firebase Admin SDK
-    const options = {
-      credential: admin.credential.cert(serviceAccount),
-      storageBucket,
-    };
-    const bucket = admin.initializeApp(options).storage().bucket();
+    // Get Firebase Storage Bucket
+    const bucket = await getStorageBucket(this);
 
     // Check for path of file to be uploaded
     // Priority: flag > CLI argument
@@ -174,10 +122,10 @@ export default class Upload extends Command {
 
     // If public, then get Public URL
     // Else if private, check for '-l' flag for link generation
+    let url = '';
     if (flags.public) {
-      const publicUrl = file.metadata.mediaLink;
-      this.log(chalk.blue('Public URL:'), chalk.bold.underline(publicUrl));
-      this.copyToClipboard(publicUrl);
+      url = file.metadata.mediaLink;
+      this.log(chalk.blue('Public URL:'), chalk.bold.underline(url));
     } else if (flags.link) {
       const fourHoursFromNow = new Date(
         new Date().getTime() + 60 * 60 * flags.expiry * 1000,
@@ -186,14 +134,18 @@ export default class Upload extends Command {
         action: 'read',
         expires: fourHoursFromNow,
       });
-      const privateUrl = signedUrlResponse[0];
+      url = signedUrlResponse[0];
       this.log(
         chalk.blue.bold(
           `This link is valid for the next ${flags.expiry} hours.`,
         ),
       );
-      this.log(chalk.blue('Private URL:'), chalk.bold.underline(privateUrl));
-      this.copyToClipboard(privateUrl);
+      this.log(chalk.blue('Private URL:'), chalk.bold.underline(url));
+    }
+
+    // Copy to clipboard if flag has been set
+    if (url !== '' && flags.clipboard) {
+      this.copyToClipboard(url);
     }
   }
 }

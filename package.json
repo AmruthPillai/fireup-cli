@@ -17,11 +17,13 @@
     "chalk": "^4.0.0",
     "clipboardy": "^2.3.0",
     "firebase-admin": "^8.10.0",
+    "inquirer": "^7.1.0",
     "ora": "^4.0.3",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
+    "@types/inquirer": "^6.5.0",
     "@types/jsonfile": "^5.0.0",
     "@types/node": "^10.17.18",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
